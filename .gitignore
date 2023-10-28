@@ -162,3 +162,8 @@ cython_debug/
 *.bin
 *.zip
 *.tar.gz
+*.jpg
+*.wav
+*.mp3
+*.mp4
+*.avi
