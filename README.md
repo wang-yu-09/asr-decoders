@@ -1,4 +1,4 @@
-# ASR Decoders
+# Deployable End-to-End ASR Decoders
 
 All decoders are written in C++. besides using C++ interface directly, we also use pybind11 to provide python interface, which can be called in python directly after compilation.
 
@@ -86,7 +86,7 @@ ln -s /path/to/Eesen/asr_egs/librispeech/utils utils
 ln -s /path/to/Eesen/asr_egs/librispeech/steps steps
 ```
 
-### 2. 准备资源
+### 2. Preparation
 Create a `src` path under `demo`, and put the following three files under the path:  
 1) `lexicon.txt`: Word->Subword Dictionary, e.g. pronunciation dictionary. The format of each line is e.g.: `打开 da kai`  
 2) `units.txt`: The id of blank must be 0, and this lexicon contains all subword units except blank. When the lexicon is subsequently created, a `<eps>` and `<blk>` (the blank symbol) are inserted at the top, so the resulting lexicon actually has one more category than the output of the CTC, and the IDs are staggered backwards by one, and the id of blank becomes a 1. But don't worry, where I take the probabilities in the decoder, I subtracted a 1 from the IDs to cancel out this error. The format of each line is as follows: `da`  
